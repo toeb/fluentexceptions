@@ -113,6 +113,7 @@ namespace Core.Test
     public void ShouldReturnResultOnSuccess()
     {
       var result = new Try().Execute(() => 3);
+      Assert.AreEqual(3, result);
     }
 
     [TestMethod]
@@ -166,6 +167,9 @@ namespace Core.Test
     public void ShouldCallCustomCatchBlock()
     {
       var exceptionHandled = false;
+     // expects RightException and calls a custom handler when it occurs
+      // expect any other exception which will be ignored quitely
+      // returns value of operation on success
       var result = new Try().Repeat(3)
         .Expect<RightException>(ex => { exceptionHandled = true; })
         .Expect<Exception>()
