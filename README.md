@@ -1,6 +1,8 @@
 fluentexceptions
 ================
 
+new: install via nuget: Install-Package Core.Trying
+
 A Fluent Way of Exception Handling
 
 
